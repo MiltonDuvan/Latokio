@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latokio/view/dasboard_page.dart';
 import 'package:latokio/view/login_page.dart';
 
 void main() {
@@ -15,9 +16,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
        visualDensity: VisualDensity.adaptivePlatformDensity,        
       ),
-      initialRoute: LoginPage.id,
+      initialRoute: DasboardPage.id,
+        
       routes: {
         LoginPage.id :(context) => LoginPage(),
+        DasboardPage.id :(context) => DasboardPage(),
       },
     );
   }

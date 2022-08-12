@@ -12,11 +12,13 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        //res
+        resizeToAvoidBottomInset: false,
         body: Center(
-          child:Column (
+          child: Column(
             children: [
               SizedBox(
-                height: 50.0,
+                height: 30.0,
               ),
               Flexible(
                 child: Image.asset(
@@ -44,6 +46,10 @@ class _LoginPageState extends State<LoginPage> {
                 height: 10.0,
               ),
               _ForgotPassTextField(),
+              SizedBox(
+                height: 20.0,
+              ),
+              _buttonregister()
             ],
           ),
         ),
@@ -71,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
-        height: 50.0,
+        height: 45.0,
         width: 390,
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
@@ -93,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
-        height: 50.0,
+        height: 45.0,
         width: 390,
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
@@ -122,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Container(
           constraints: BoxConstraints(
             maxWidth: 400,
-            minHeight: 50,
+            minHeight: 40,
           ),
           alignment: Alignment.center,
           padding: EdgeInsets.all(0.0),
@@ -140,22 +146,11 @@ class _LoginPageState extends State<LoginPage> {
           fixedSize: Size(350, 50),
           padding: EdgeInsets.all(0.0),
           textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-          // primary: Colors.yellow,
           onPrimary: Colors.white,
           elevation: 15,
           shadowColor: Colors.red,
           shape: StadiumBorder(),
         ),
-
-        // style: ButtonStyle(
-        //   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-        //     RoundedRectangleBorder(
-        //         borderRadius: BorderRadius.circular(18.0),
-        //         side: BorderSide(color: Color.fromARGB(255, 244, 54, 54),
-        //         ),
-        //         ),
-        //   ),
-        // ),
       );
     });
   }
@@ -164,14 +159,40 @@ class _LoginPageState extends State<LoginPage> {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
-        child: new GestureDetector(onTap: () {
-          Navigator.pushNamed(context, LoginPage.id, arguments: "1");
-          child:
-          new Text(
-            "¿Has olvidado tu contraseña?"
-           
-          );
-        }),
+        height: 30.0,
+        width: 300,
+        child: Text(
+          "¿Has olvidado tu contraseña?",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      );
+    });
+  }
+
+  Widget _buttonregister() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      return ElevatedButton(
+        onPressed: () {},
+        child: Container(
+          alignment: Alignment.center,
+          padding: EdgeInsets.all(0.0),
+          child: Text('Registrate'),
+        ),
+        style: ElevatedButton.styleFrom(
+          fixedSize: Size(350, 50),
+          padding: EdgeInsets.all(0.0),
+          textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          primary: Colors.white54,
+          onPrimary: Color.fromARGB(108, 33, 33, 33),
+          elevation: 10,
+          shadowColor: Colors.red,
+          shape: StadiumBorder(),
+        ),
       );
     });
   }

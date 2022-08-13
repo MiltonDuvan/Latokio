@@ -55,6 +55,17 @@ class _DasboardPageState extends State<DasboardPage> {
               SizedBox(
                 height: 15.0,
               ),
+              _container1(),
+              SizedBox(
+                height: 15.0,
+              ),
+               _container2(),
+                 SizedBox(
+                height: 50.0,
+              ),
+              _navigationbar(),
+
+
             ],
           ),
         ),
@@ -84,7 +95,170 @@ class _DasboardPageState extends State<DasboardPage> {
       );
     });
   }
+
+  Widget _container1() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      return Container(
+        decoration: BoxDecoration(
+            color: Color.fromARGB(255, 94, 0, 141),
+            borderRadius: BorderRadius.circular(30)),
+        child: new SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: 200.0,
+          child: ListView(
+            children: <Widget>[
+              SizedBox(
+                height: 10.0,
+              ),
+              const ListTile(
+                title: Text(
+                  "Ahora tus puntos",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                      color: Colors.white70,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 22),
+                ),
+                subtitle: Text('VALEN MÁS \n CON LATOKIO',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 26,
+                    )),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 0, 30),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Container(
+                        // alignment: Alignment.center,
+                        padding: EdgeInsets.all(0.0),
+                        child: Text('Conoce mas aqui'),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        alignment: Alignment.center,
+                        fixedSize: Size(160, 20),
+                        padding: EdgeInsets.all(0.0),
+                        textStyle: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        primary: Colors.white54,
+                        onPrimary: Color.fromARGB(229, 255, 255, 255),
+                        elevation: 10,
+                        shape: StadiumBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Image.asset(
+                      'assets/logo.png',
+                      //se le quita el color para mostrar la imagen
+                      color: Colors.white60,
+                      height: 100.0,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    });
+  }
+
+  Widget _container2() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      return Container(
+        decoration: BoxDecoration(
+            color: Color.fromARGB(255, 94, 0, 141),
+            borderRadius: BorderRadius.circular(30)),
+        child: new SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: 200.0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              //aqui puedes poner un texto opcional
+              Align(
+                alignment: Alignment.centerRight,
+                child: new Text("   "),
+              ),
+              Expanded(
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Visita nuestra \n',
+                    style: TextStyle(
+                        fontSize: 23.0,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.white70),
+                    children: [
+                      TextSpan(
+                          text: 'TIENDA',
+                          style: TextStyle(
+                            fontSize: 35.0,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
+                ),
+              ),
+
+              Expanded(
+                child: IconButton(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 80, 50),
+                  icon: Icon(
+                    Icons.store_rounded,
+                    color: Colors.blueAccent,
+                    size: 120,
+                  ),
+                  onPressed: () => null,
+                ),
+              )
+            ],
+          ),
+        ),
+      );
+    });
+  }
+  
+ Widget _navigationbar() {
+  return StreamBuilder(
+    
+
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          
+      return BottomNavigationBar( items: const [
+       
+        BottomNavigationBarItem(
+          
+          icon: Icon(Icons.home),
+          label: 'Inicio'
+        ),
+         BottomNavigationBarItem(
+          icon: Icon(Icons.store),
+          label: 'Tienda'
+        ),
+         BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle_rounded),
+          label: 'Mi Cuenta'
+        ),
+      ],
+
+      );
+ }
+  );
 }
+}
+
+
 
 
  
